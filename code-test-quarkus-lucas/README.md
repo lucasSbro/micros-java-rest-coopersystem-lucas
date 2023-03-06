@@ -1,4 +1,6 @@
 # code-test-quarkus-lucas
+# Swagger da aplicação
+http://localhost:8080/cotacao/q/swagger-ui/#/
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
