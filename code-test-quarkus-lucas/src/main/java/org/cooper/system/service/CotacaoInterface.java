@@ -10,7 +10,4 @@ public interface CotacaoInterface {
     @GET
     @Path("v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)")
     Response getCotacaoDolarDia(@QueryParam("@dataCotacao") String dataCotacao);
-    @GET
-    @Path("v1/odata/CotacaoDolarDia/{dataInicial}/{dataFinalCotacao}")
-    Response getCotacaoDolarPeriodo(@PathParam("dataInicial") String dataInicial, @PathParam("dataFinalCotacao") String dataFinalCotacao);
 }

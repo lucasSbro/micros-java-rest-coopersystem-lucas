@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+ api-a:
+   build: "./code-test-quarkus-lucas"
+   container_name: micro-a-image
+   restart: always   
+   ports:
+     - 80:8080
+ api-b:
+   build: "./code-test-quarkus-lucas-b"
+   container_name: micro-b-image
+   restart: always   
+   ports:
+     - 80:8082
+         
+    

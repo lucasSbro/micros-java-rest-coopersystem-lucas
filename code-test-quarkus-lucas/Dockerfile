@@ -7,11 +7,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/code-test-quarkus-lucas-b .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/code-test-quarkus-lucas .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/code-test-quarkus-lucas-b
+# docker run -i --rm -p 8080:8080 quarkus/code-test-quarkus-lucas
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.6
@@ -19,9 +19,7 @@ WORKDIR /work/
 RUN chown 1001 /work \
     && chmod "g+rwX" /work \
     && chown 1001:root /work
-#COPY --chown=1001:root target/*-runner /work/application
 
-EXPOSE 8082
+EXPOSE 8080
 USER 1001
 
-#CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]

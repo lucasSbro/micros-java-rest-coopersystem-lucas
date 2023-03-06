@@ -45,12 +45,12 @@ public class CotacaoBService {
     }
 
     public ValueCotacao getCotacaoDolarDiaUtilAnterior(String dataCotacao) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
         Calendar c = Calendar.getInstance();
         c.setTime(sdf.parse(dataCotacao.replace("'", "").replace("-", "/")));
 
-        Calendar ultimoDiaUtil = getUltimoDiaUtilDoMes(c);
+        Calendar ultimoDiaUtil = getUltimoDiaUtil(c);
         String dataUltimoDiaUtil = format.format(ultimoDiaUtil.getTime());
 
         ResteasyClient client = (ResteasyClient) ClientBuilder.newClient();
@@ -79,7 +79,7 @@ public class CotacaoBService {
         return valueCotacao;
     }
 
-    public static Calendar getUltimoDiaUtilDoMes(Calendar calendar) {
+    public static Calendar getUltimoDiaUtil(Calendar calendar) {
         calendar.add(Calendar.DATE, -1);
         while(calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY ||
                 calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
